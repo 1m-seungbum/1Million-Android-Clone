@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">1Million-Android-Clone</string>
+    <string name="sign_up"><u>가입하기</u></string>
+    <string name="requirement">필수로 입력해야 합니다.</string>
+
+    <string-array name="gender_spinner_list">
+        <item>여성</item>
+        <item>남성</item>
+        <item>기타</item>
+    </string-array>
+    <string name="terms_service"><u>이용약관</u></string>
+    <string name="personal_required"><u>개인정보수집이용</u></string>
+    <string name="personal_option">촬영, 배포, 취재에 동의합니다.(선택)</string>
+    <string name="accept_all">위 내용에 모두 동의합니다.</string>
+    <string name="camera_upload">카메라 아이콘을 눌러 사진을 업로드해주세요.</string>
+    <string name="profile_dialog_title">프로필 사진 등록</string>
+    <string name="profile_dialog_message">본인 확인이 얼여운 프로필의 경우 입장에 제한이 있을 수 있으며 프로필은 한 번 등록한 이후 변경이 불가합니다.</string>
+    <string name = "profile_dialog_content1">앨범에서 선택</string>
+    <string name = "profile_dialog_content2">사진 촬영</string>
+</resources>
