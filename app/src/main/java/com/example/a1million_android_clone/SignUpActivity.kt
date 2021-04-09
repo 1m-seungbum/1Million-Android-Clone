@@ -1,25 +1,31 @@
 package com.example.a1million_android_clone
 
+import android.content.DialogInterface
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
-import android.widget.Spinner
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_signup.*
+import kotlinx.android.synthetic.main.fragment_dialog_profile.*
+import kotlinx.android.synthetic.main.fragment_dialog_profile.view.*
 
 
-class SignUpActivity : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnFragmentInteractionListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        // 성별 spinner
         gender_input.setOnClickListener {
             ArrayAdapter.createFromResource(
                 this,
@@ -45,23 +51,15 @@ class SignUpActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
+        val profileDialog = ProfileFragmentDialog()
 
+        //supportFragmentManager.beginTransaction().add(R.id.profile_dialog_content1,profileDialog).commit()
 
-/*
-        spinner.setOnItemClickListener { parent, view, position, id ->
-            Log.d("asdf", parent.adapter.getItem(position).toString())
+        profile_image.setOnClickListener{
+            profileDialog.show(supportFragmentManager, "profile_dialog")
 
-
-            //var genderText = parent.getAdapter().getItem(position)
-           // gender_input.text = genderText as Editable?
-
-        //gender_input.text = parent.adapter.getItem(position) as Editable?
         }
 
-
- */
-
-        
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -74,5 +72,9 @@ class SignUpActivity : AppCompatActivity() {
                 return super.onOptionsItemSelected(item)
             }
         }
+    }
+
+    override fun onFragmentInteraction(msg: Uri) {
+        profile_image.setImageURI(msg)
     }
 }

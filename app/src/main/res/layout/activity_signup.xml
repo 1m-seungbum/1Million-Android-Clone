@@ -21,7 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/join"
                 android:layout_width="wrap_content"
@@ -147,14 +146,7 @@
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pwd_view"
-
-                >
-
-                <!--app:helperTextEnabled="false"
-                app:helperText="@string/requirement"
-                app:helperTextTextColor="#ff0000"
-                -->
+                app:layout_constraintTop_toBottomOf="@+id/pwd_view">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/pwd_input"
@@ -192,14 +184,7 @@
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pwd_confirm_view"
-
-                >
-
-                <!--app:helperTextEnabled="false"
-                app:helperText="@string/requirement"
-                app:helperTextTextColor="#ff0000"
-                -->
+                app:layout_constraintTop_toBottomOf="@+id/pwd_confirm_view">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/pwd_confirm_input"
@@ -237,14 +222,7 @@
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/birthdate_view"
-
-                >
-
-                <!--app:helperTextEnabled="false"
-                app:helperText="@string/requirement"
-                app:helperTextTextColor="#ff0000"
-                -->
+                app:layout_constraintTop_toBottomOf="@+id/birthdate_view">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/birthdate_input"
@@ -280,10 +258,7 @@
                 android:layout_marginTop="10dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/phone_number_layout"
-                app:layout_constraintTop_toBottomOf="@+id/phone_number_view"
-
-
-                >
+                app:layout_constraintTop_toBottomOf="@+id/phone_number_view">
 
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/ccp"
@@ -310,11 +285,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/phone_number_view"
 
                 >
-
-                <!--app:helperTextEnabled="false"
-                app:helperText="@string/requirement"
-                app:helperTextTextColor="#ff0000"
-                -->
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phone_number_input"
@@ -356,11 +326,6 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/address_view">
 
-                <!--app:helperTextEnabled="false"
-                app:helperText="@string/requirement"
-                app:helperTextTextColor="#ff0000"
-                -->
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/address_input"
                     android:layout_width="match_parent"
@@ -400,11 +365,6 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/gender_view">
 
-                <!--app:helperTextEnabled="false"
-                app:helperText="@string/requirement"
-                app:helperTextTextColor="#ff0000"
-                -->
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/gender_input"
                     android:layout_width="match_parent"
@@ -443,8 +403,8 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/profile_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/ic_profile"
@@ -458,11 +418,11 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/profile_description"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="50dp"
-                android:text="카메라 아이콘을 눌러 사진을 업로드해주세요."
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="60dp"
+                android:text="@string/camera_upload"
                 android:textColor="#808080"
                 android:textSize="10dp"
                 app:layout_constraintLeft_toRightOf="@+id/profile_image"
@@ -495,7 +455,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:button="@drawable/ic_check_box_selector"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/person_required" />
@@ -505,7 +465,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/personal_option"
                 app:layout_constraintLeft_toRightOf="@+id/person_option"
                 app:layout_constraintRight_toRightOf="parent"
@@ -531,23 +491,22 @@
                 app:layout_constraintLeft_toRightOf="@+id/person_all"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/option_text" />
+
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/to_join"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/to_join"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/black"
+                android:text="가입하기"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/all_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:text="가입하기"
-                android:backgroundTint="@color/black"
-                android:textColor="@color/white"
-                />
-
+                app:layout_constraintTop_toBottomOf="@id/all_text" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
