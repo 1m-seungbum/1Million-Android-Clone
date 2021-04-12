@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_dialog_profile.*
 import kotlinx.android.synthetic.main.fragment_dialog_profile.view.*
 
 
-class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnFragmentInteractionListener {
+class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragmentInteractionListener, GenderFragmentDialog.OnGenderFragmentInteractionListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +42,13 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnFragmentInte
 
     }
 
-     override fun onFragmentInteraction(msg: Uri) {
+     override fun onProfileFragmentInteraction(msg: Uri) {
         //글라이드 커스텀 이미지뷰
         Glide.with(this).load(msg).apply(RequestOptions().circleCrop()).into(profile_image)
+    }
+
+    override fun onGenderFragmentInteraction(msg: String) {
+
+        gender_input.setText(msg)
     }
 }

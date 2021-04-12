@@ -376,21 +376,14 @@
                     android:id="@+id/gender_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="성별을 선택해주세요."
+                    android:text="성별 선택"
+                    android:enabled="true"
                     android:focusable="false"
-                    android:inputType="none">
-
-                    <!-- android:drawableRight="@drawable/down_arrow" -->
+                    android:inputType="none"
+                    android:drawableRight="@drawable/bg_dialog_gender_down_arrow"
+                    android:textColor="@color/black">
 
                 </com.google.android.material.textfield.TextInputEditText>
-
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@android:color/transparent"
-                    android:spinnerMode="dialog" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

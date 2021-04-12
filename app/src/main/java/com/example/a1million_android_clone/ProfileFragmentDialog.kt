@@ -37,7 +37,7 @@ class ProfileFragmentDialog : DialogFragment() {
 
     private val REQUEST_GALLERY_TAKE = 2
     private val REQUEST_IMAGE_CAPTURE = 1
-    private var listener: OnFragmentInteractionListener? = null
+    private var listener: OnProfileFragmentInteractionListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -69,15 +69,15 @@ class ProfileFragmentDialog : DialogFragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        if (context is OnFragmentInteractionListener) {
+        if (context is OnProfileFragmentInteractionListener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException(context.toString() + " must implement OnProfileFragmentInteractionListener")
         }
     }
 
-    interface OnFragmentInteractionListener {
-        fun onFragmentInteraction(msg: Uri)
+    interface OnProfileFragmentInteractionListener {
+        fun onProfileFragmentInteraction(msg: Uri)
     }
 
     private fun goToAlbum() {
@@ -142,7 +142,7 @@ class ProfileFragmentDialog : DialogFragment() {
                 val result = CropImage.getActivityResult(data)
                 if (resultCode == Activity.RESULT_OK) {
                     result.uri?.let {
-                        listener?.onFragmentInteraction(result.uri)
+                        listener?.onProfileFragmentInteraction(result.uri)
                         dismiss()
                     }
                 } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
@@ -162,7 +162,6 @@ class ProfileFragmentDialog : DialogFragment() {
             }
 
             override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {//설정해 놓은 위험권한이 거부된 경우 이곳을 실행
-
             }
         }
 
