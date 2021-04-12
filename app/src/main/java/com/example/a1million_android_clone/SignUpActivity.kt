@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
+import android.widget.CompoundButton
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -40,15 +41,44 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
             profileDialog.show(supportFragmentManager, "profile_dialog")
         }
 
+        required_text_first.setOnClickListener {
+            // 이용약간 화면 띄우기
+        }
+
+        required_text_third.setOnClickListener {
+            // 개인정보수집이용 화면 띄우기
+        }
+
+        person_all.setOnClickListener { onCheckChanged(person_all) }
+        person_option.setOnClickListener { onCheckChanged(person_option) }
+        person_required.setOnClickListener { onCheckChanged(person_required) }
+
+    }
+
+    private fun onCheckChanged(compoundButton: CompoundButton) {
+        when(compoundButton.id) {
+            R.id.person_all -> {
+                if(person_all.isChecked) {
+                    person_all.isChecked = true
+                    person_option.isChecked = true
+                    person_required.isChecked = true
+                } else {
+                    person_all.isChecked = false
+                    person_option.isChecked = false
+                    person_required.isChecked = false
+                }
+            }
+            else -> {
+                person_all.isChecked = (person_option.isChecked && person_required.isChecked)
+            }
+        }
     }
 
      override fun onProfileFragmentInteraction(msg: Uri) {
-        //글라이드 커스텀 이미지뷰
         Glide.with(this).load(msg).apply(RequestOptions().circleCrop()).into(profile_image)
     }
 
     override fun onGenderFragmentInteraction(msg: String) {
-
         gender_input.setText(msg)
     }
 }
