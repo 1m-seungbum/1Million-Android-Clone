@@ -12,6 +12,8 @@ import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_signup.*
 import kotlinx.android.synthetic.main.fragment_dialog_profile.*
 import kotlinx.android.synthetic.main.fragment_dialog_profile.view.*
@@ -25,56 +27,22 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnFragmentInte
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        // 성별 spinner
-        gender_input.setOnClickListener {
-            ArrayAdapter.createFromResource(
-                this,
-                R.array.gender_spinner_list,
-                android.R.layout.simple_spinner_item
-            ).also { adapter ->
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                spinner.adapter = adapter
-            }
-            spinner.performClick()
-        }
-
-        spinner.onItemSelectedListener = object : OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                gender_input.setText(parent.adapter.getItem(position).toString())
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
-        }
 
         val profileDialog = ProfileFragmentDialog()
+        val genderDialog = GenderFragmentDialog()
 
-        //supportFragmentManager.beginTransaction().add(R.id.profile_dialog_content1,profileDialog).commit()
+        gender_input.setOnClickListener {
+            genderDialog.show(supportFragmentManager, "gender_dialog")
+        }
 
         profile_image.setOnClickListener{
             profileDialog.show(supportFragmentManager, "profile_dialog")
-
         }
 
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item?.itemId) {
-            android.R.id.home -> {
-                finish()
-                return true
-            }
-            else -> {
-                return super.onOptionsItemSelected(item)
-            }
-        }
-    }
-
-    override fun onFragmentInteraction(msg: Uri) {
-        profile_image.setImageURI(msg)
+     override fun onFragmentInteraction(msg: Uri) {
+        //글라이드 커스텀 이미지뷰
+        Glide.with(this).load(msg).apply(RequestOptions().circleCrop()).into(profile_image)
     }
 }

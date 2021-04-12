@@ -3,7 +3,7 @@
 <resources>
     <string name="app_name">1Million-Android-Clone</string>
     <string name="sign_up"><u>가입하기</u></string>
-    <string name="requirement">필수로 입력해야 합니다.</string>
+    <string name="name_helper">이름을 입력해주세요.</string>
 
     <string-array name="gender_spinner_list">
         <item>여성</item>

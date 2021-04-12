@@ -56,7 +56,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:hint="이름"
+                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -70,6 +70,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/name_input"
+                    android:hint="이름"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -99,7 +100,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:hint="이메일 주소"
+                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -114,6 +115,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/mail_input"
                     android:layout_width="match_parent"
+                    android:hint="이메일 주소"
                     android:layout_height="wrap_content">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -141,7 +143,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:hint="비밀번호 (영문, 숫자 조합 8자리 이상)"
+                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -151,6 +153,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/pwd_input"
                     android:layout_width="match_parent"
+                    android:hint="비밀번호 (영문, 숫자 조합 8자리 이상)"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword">
 
@@ -179,7 +182,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:hint="비밀번호 (영문, 숫자 조합 8자리 이상)"
+                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -190,6 +193,7 @@
                     android:id="@+id/pwd_confirm_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="비밀번호 (영문, 숫자 조합 8자리 이상)"
                     android:inputType="textPassword">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -217,7 +221,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:hint="YYYY-MM-DD"
+                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -228,6 +232,7 @@
                     android:id="@+id/birthdate_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="YYYY-MM-DD"
                     android:inputType="date">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -277,7 +282,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:hint="연락처를 입력해주세요."
+                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toRightOf="@+id/ccp_layout"
@@ -290,6 +295,7 @@
                     android:id="@+id/phone_number_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="연락처를 입력해주세요."
                     android:inputType="date">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -319,7 +325,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:hint="주소를 입력해주세요."
+                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -328,6 +334,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/address_input"
+                    android:hint="주소를 입력해주세요."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -358,7 +365,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:hint="성별을 선택해주세요."
+                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -369,6 +376,7 @@
                     android:id="@+id/gender_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="성별을 선택해주세요."
                     android:focusable="false"
                     android:inputType="none">
 

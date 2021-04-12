@@ -14,8 +14,12 @@ class GenderFragmentDialog: DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val v = inflater.inflate(R.layout.fragment_dialog_profile, container)
+        val v = inflater.inflate(R.layout.fragment_dialog_gender, container)
+
+
 
         return v
     }
+
+
 }
