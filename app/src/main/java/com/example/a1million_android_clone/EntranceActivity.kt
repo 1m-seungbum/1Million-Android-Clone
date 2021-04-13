@@ -18,7 +18,7 @@ class EntranceActivity : AppCompatActivity() {
         }
 
         sign_up.setOnClickListener {
-            // 페이지 이
+            // 페이지 이동
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
