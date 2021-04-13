@@ -1,26 +1,19 @@
 package com.example.a1million_android_clone
 
 import android.content.DialogInterface
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.MenuItem
-import android.view.View
-import android.widget.AdapterView
-import android.widget.AdapterView.OnItemSelectedListener
-import android.widget.ArrayAdapter
 import android.widget.CompoundButton
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_signup.*
-import kotlinx.android.synthetic.main.fragment_dialog_profile.*
-import kotlinx.android.synthetic.main.fragment_dialog_profile.view.*
-
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragmentInteractionListener,
     GenderFragmentDialog.OnGenderFragmentInteractionListener {
@@ -31,14 +24,15 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-
         val profileDialog = ProfileFragmentDialog()
         val genderDialog = GenderFragmentDialog()
 
+        // 성별 선택 dialog fragment
         gender_input.setOnClickListener {
             genderDialog.show(supportFragmentManager, "gender_dialog")
         }
 
+        // 프로필 선택 dialog fragment
         profile_image.setOnClickListener {
             profileDialog.show(supportFragmentManager, "profile_dialog")
         }
@@ -58,11 +52,8 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
         // 이름 입력
         name_input.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
             override fun afterTextChanged(s: Editable?) {
-
                 if (s != null) {
                     if (s.isEmpty()) { // 입력 받지 못했을시 helper 보여줌
                         name_layout.isHelperTextEnabled = true
@@ -71,17 +62,13 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
                         name_layout.isHelperTextEnabled = false
                     }
                 }
-
             }
-
         })
 
         // 이메일 입력
         mail_input.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
             override fun afterTextChanged(s: Editable?) {
                 if (s != null) {
                     if (s.isEmpty()) { // 입력을 받지 못했을시 helper 표시
@@ -100,9 +87,7 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
         // 비밀번호 입력
         pwd_input.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
             override fun afterTextChanged(s: Editable?) {
                 if (s != null) {
                     if (s.isEmpty()) { // 입력을 받지 못했을시 helper 표시
@@ -118,12 +103,10 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
             }
         })
 
-        // 비밀번호 확인 입
+        // 비밀번호 확인 입력
         pwd_confirm_input.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
             override fun afterTextChanged(s: Editable?) {
                 if (s != null) {
                     if (s.isEmpty()) { // 새비밀번호 입력을 안받았을시 helepr 표시
@@ -142,6 +125,87 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
             }
         })
 
+        // 생년월일 입력
+        birthdate_input.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                if (s != null) {
+                    if (s.length == 8)
+                        isValidBirthdate(s.toString())
+                    /*  if (isValidBirthdate(s.toString())) {
+                          birthdate_layout.isHelperTextEnabled = true
+                          birthdate_layout.helperText = "생년월일을 입력해주세요."
+                      } else {
+                          birthdate_layout.isHelperTextEnabled = false
+                      }
+
+                     */
+                }
+            }
+        })
+
+        // 연락처 입력
+        phone_number_input.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                if (s != null) {
+                    if (s.isEmpty()) {
+                        phone_number_layout.isHelperTextEnabled = true
+                        phone_number_layout.helperText = "연락처를 입력해주세요."
+                    } else {
+                        phone_number_layout.isHelperTextEnabled = false
+                    }
+                }
+            }
+        })
+
+        // 주소 입력
+        address_input.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { }
+            override fun afterTextChanged(s: Editable?) {
+                if (s != null) {
+                    if (s.isEmpty()) {
+                        address_layout.isHelperTextEnabled = true
+                        address_layout.helperText = "주소를 입력해주세요."
+                    } else {
+                        address_layout.isHelperTextEnabled = false
+                    }
+                }
+            }
+        })
+
+    }
+
+    // 생년월일 유효성 검사
+    private fun isValidBirthdate(birthdate: String): Boolean {
+
+        val currentDateTime = Calendar.getInstance().time
+        val currentDateYear = SimpleDateFormat("yyyy", Locale.KOREA).format(currentDateTime)
+        val validBirthdate = SimpleDateFormat("yyyyMMdd", Locale.KOREA)
+
+        /*
+        if (birthdate.length == 4) {
+            if (birthdate.toInt() > currentDateYear.toInt()) {
+                AlertDialog.Builder(this).setTitle("잘못 입력하였습니다.") //제목
+                    .setNeutralButton("확인", { dialogInterface: DialogInterface, i: Int ->
+                        birthdate_input.setText(birthdate.dropLast(1))
+                    })
+                    .show()
+
+                // dialog 메세지 띄우기 및 하나 삭제
+            } else {
+                Log.d("asdf","3333")
+                // 뒤에 - 붙이
+                birthdate_input.setText(birthdate + "-")
+            }
+        }
+         */
+
+        return false
+
     }
 
     // 새비밀번호와 비밀번호가 같은지 검사
@@ -152,8 +216,8 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
     // 비밀번호 유효성 검사 숫자, 문자가 있는지 8글자 이상인지
     private fun isValidPwd(pwd: String): Boolean {
 
-        val regexLetter = "\\w+[a-zA-Z]\\w+"
-        val regexDigit = "\\w+[0-9]\\w+"
+        val regexLetter = "\\w+[a-zA-Z]\\w+" // 문자 정규식
+        val regexDigit = "\\w+[0-9]\\w+" // 숫자 정규식
 
         return regexLetter.toRegex().matches(pwd) && regexDigit.toRegex().matches(pwd) && pwd.length >= 8
     }
@@ -186,10 +250,12 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
         }
     }
 
+    // 프로필 사진 추가
     override fun onProfileFragmentInteraction(msg: Uri) {
         Glide.with(this).load(msg).apply(RequestOptions().circleCrop()).into(profile_image)
     }
 
+    // 성별 선택 추가
     override fun onGenderFragmentInteraction(msg: String) {
         gender_input.setText(msg)
     }

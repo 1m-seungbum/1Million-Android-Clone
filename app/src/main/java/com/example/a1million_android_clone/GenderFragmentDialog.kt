@@ -1,17 +1,13 @@
 package com.example.a1million_android_clone
 
-import android.app.Dialog
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.fragment.app.DialogFragment
 import kotlinx.android.synthetic.main.fragment_dialog_gender.view.*
-import kotlinx.android.synthetic.main.fragment_dialog_profile.view.*
 
 class GenderFragmentDialog : DialogFragment() {
 
@@ -36,7 +32,6 @@ class GenderFragmentDialog : DialogFragment() {
                 listener?.onGenderFragmentInteraction(v.findViewById<RadioButton>(v.gender_radio_group.checkedRadioButtonId).text.toString())
                 dismiss()
             }
-
         }
 
         return v
@@ -55,6 +50,5 @@ class GenderFragmentDialog : DialogFragment() {
     interface OnGenderFragmentInteractionListener {
         fun onGenderFragmentInteraction(msg: String)
     }
-
 
 }

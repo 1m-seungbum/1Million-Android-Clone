@@ -229,6 +229,8 @@
                 app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
                 app:hintTextColor="#808080"
+                app:helperTextEnabled="false"
+                app:helperTextTextColor="#ff0000"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/birthdate_view">
@@ -238,7 +240,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="YYYY-MM-DD"
-                    android:inputType="date">
+                    android:inputType="number">
 
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -293,7 +295,8 @@
                 app:layout_constraintLeft_toRightOf="@+id/ccp_layout"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/phone_number_view"
-
+                app:helperTextEnabled="false"
+                app:helperTextTextColor="#ff0000"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -331,6 +334,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 app:hintEnabled="false"
+                app:helperTextEnabled="false"
+                app:helperTextTextColor="#ff0000"
                 app:boxStrokeColor="#808080"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
