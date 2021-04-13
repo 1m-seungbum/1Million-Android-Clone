@@ -56,20 +56,20 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
+                app:helperTextEnabled="false"
+                app:helperTextTextColor="#ff0000"
+                app:hintEnabled="false"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name_view"
-                app:helperTextEnabled="false"
-                app:helperTextTextColor="#ff0000">
+                app:layout_constraintTop_toBottomOf="@+id/name_view">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/name_input"
-                    android:hint="이름"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:hint="이름">
 
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -99,14 +99,14 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
+                app:helperTextEnabled="false"
+                app:helperTextTextColor="#ff0000"
+                app:hintEnabled="false"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mail_view"
-                app:helperTextEnabled="false"
-                app:helperTextTextColor="#ff0000">
+                app:layout_constraintTop_toBottomOf="@+id/mail_view">
 
                 <!--app:helperTextEnabled="false"
                 app:helperText="@string/requirement"
@@ -116,8 +116,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/mail_input"
                     android:layout_width="match_parent"
-                    android:hint="이메일 주소"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:hint="이메일 주소">
 
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -144,20 +144,20 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
+                app:helperTextEnabled="false"
+                app:helperTextTextColor="#ff0000"
+                app:hintEnabled="false"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pwd_view"
-                app:helperTextEnabled="false"
-                app:helperTextTextColor="#ff0000">
+                app:layout_constraintTop_toBottomOf="@+id/pwd_view">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/pwd_input"
                     android:layout_width="match_parent"
-                    android:hint="비밀번호 (영문, 숫자 조합 8자리 이상)"
                     android:layout_height="wrap_content"
+                    android:hint="비밀번호 (영문, 숫자 조합 8자리 이상)"
                     android:inputType="textPassword">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -185,14 +185,14 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
+                app:helperTextEnabled="false"
+                app:helperTextTextColor="#ff0000"
+                app:hintEnabled="false"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pwd_confirm_view"
-                app:helperTextEnabled="false"
-                app:helperTextTextColor="#ff0000">
+                app:layout_constraintTop_toBottomOf="@+id/pwd_confirm_view">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/pwd_confirm_input"
@@ -226,11 +226,11 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
-                app:hintTextColor="#808080"
                 app:helperTextEnabled="false"
                 app:helperTextTextColor="#ff0000"
+                app:hintEnabled="false"
+                app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/birthdate_view">
@@ -247,6 +247,62 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/nation_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="국적"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@id/nation_layout"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/birthdate_layout">
+
+            </com.google.android.material.textview.MaterialTextView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/nation_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_rounded_corner"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/nation_text"
+                app:layout_constraintTop_toBottomOf="@+id/nation_view">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/nation_ccp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    app:ccp_countryPreference="KR,JP,CN,FR,HK"
+                    app:ccp_defaultPhoneCode="82"
+                    app:ccp_showNameCode="false"
+                    app:ccp_showPhoneCode="false"
+                    tools:ignore="MissingClass,MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/nation_text"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/bg_rounded_corner"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                app:layout_constraintLeft_toRightOf="@+id/nation_layout"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nation_view">
+
+            </com.google.android.material.textview.MaterialTextView>
+
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/phone_number_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -257,7 +313,7 @@
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toTopOf="@id/phone_number_layout"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/birthdate_layout">
+                app:layout_constraintTop_toBottomOf="@+id/nation_layout">
 
             </com.google.android.material.textview.MaterialTextView>
 
@@ -265,9 +321,10 @@
                 android:id="@+id/ccp_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
+                android:background="@drawable/bg_rounded_corner"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/phone_number_layout"
                 app:layout_constraintTop_toBottomOf="@+id/phone_number_view">
@@ -275,35 +332,41 @@
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/ccp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:defaultCode="82"
-                    app:hideNameCode="true"
-                    tools:ignore="MissingConstraints" />
+                    android:layout_height="match_parent"
+                    app:ccp_countryPreference="KR,JP,CN,FR,HK"
+                    app:ccp_defaultPhoneCode="82"
+                    app:ccp_showNameCode="false"
+                    app:ccp_showPhoneCode="false"
+                    android:gravity="left|center"
+                    tools:ignore="MissingClass,MissingConstraints" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/phone_number_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="@+id/ccp_layout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
+                app:helperTextEnabled="false"
+                app:helperTextTextColor="#ff0000"
+                app:hintEnabled="false"
+                app:expandedHintEnabled="false"
+                app:prefixTextAppearance="@color/black"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toRightOf="@+id/ccp_layout"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phone_number_view"
-                app:helperTextEnabled="false"
-                app:helperTextTextColor="#ff0000"
-                >
+                app:layout_constraintTop_toBottomOf="@+id/phone_number_view">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phone_number_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="연락처를 입력해주세요."
+                    android:textColor="@color/black"
                     android:inputType="date">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -333,10 +396,10 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                app:hintEnabled="false"
+                app:boxStrokeColor="#808080"
                 app:helperTextEnabled="false"
                 app:helperTextTextColor="#ff0000"
-                app:boxStrokeColor="#808080"
+                app:hintEnabled="false"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -344,9 +407,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/address_input"
-                    android:hint="주소를 입력해주세요."
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:hint="주소를 입력해주세요.">
 
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -375,8 +438,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                app:hintEnabled="false"
                 app:boxStrokeColor="#808080"
+                app:hintEnabled="false"
                 app:hintTextColor="#808080"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -386,11 +449,11 @@
                     android:id="@+id/gender_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="성별 선택"
+                    android:drawableRight="@drawable/bg_dialog_gender_down_arrow"
                     android:enabled="true"
                     android:focusable="false"
                     android:inputType="none"
-                    android:drawableRight="@drawable/bg_dialog_gender_down_arrow"
+                    android:text="성별 선택"
                     android:textColor="@color/black">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -454,11 +517,11 @@
                 android:id="@+id/required_text_first"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="3dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/terms_service"
-                android:textSize="12dp"
                 android:textColor="@color/black"
+                android:textSize="12dp"
                 app:layout_constraintLeft_toRightOf="@+id/person_required"
                 app:layout_constraintRight_toLeftOf="@+id/required_text_second"
                 app:layout_constraintTop_toBottomOf="@+id/profile_image" />
@@ -469,8 +532,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="및"
-                android:textSize="12dp"
                 android:textColor="@color/black"
+                android:textSize="12dp"
                 app:layout_constraintLeft_toRightOf="@+id/required_text_first"
                 app:layout_constraintRight_toLeftOf="@+id/required_text_third"
                 app:layout_constraintTop_toBottomOf="@+id/profile_image" />
@@ -480,9 +543,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:textSize="12dp"
                 android:text="@string/personal_required"
                 android:textColor="@color/black"
+                android:textSize="12dp"
                 app:layout_constraintLeft_toRightOf="@+id/required_text_second"
                 app:layout_constraintRight_toLeftOf="@+id/required_text_fourth"
                 app:layout_constraintTop_toBottomOf="@+id/profile_image" />
@@ -493,8 +556,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="에 동의합니다.(필수)"
-                android:textSize="12dp"
                 android:textColor="@color/black"
+                android:textSize="12dp"
                 app:layout_constraintLeft_toRightOf="@+id/required_text_third"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profile_image" />
@@ -515,9 +578,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:textSize="12dp"
                 android:text="@string/personal_option"
                 android:textColor="@color/black"
+                android:textSize="12dp"
                 app:layout_constraintLeft_toRightOf="@+id/person_option"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/required_text_first" />
@@ -538,8 +601,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:textColor="@color/black"
                 android:text="@string/accept_all"
+                android:textColor="@color/black"
                 app:layout_constraintLeft_toRightOf="@+id/person_all"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/option_text" />

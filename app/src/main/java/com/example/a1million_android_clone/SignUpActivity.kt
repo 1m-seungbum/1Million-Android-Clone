@@ -131,8 +131,13 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable?) {
                 if (s != null) {
-                    if (s.length == 8)
-                        isValidBirthdate(s.toString())
+                    if(!isValidBirthdate(s.toString())) {
+                        birthdate_layout.isHelperTextEnabled = true
+                        birthdate_layout.helperText = "생년월일을 입력해주세요."
+                    } else {
+                        birthdate_layout.isHelperTextEnabled = false
+                    }
+
                     /*  if (isValidBirthdate(s.toString())) {
                           birthdate_layout.isHelperTextEnabled = true
                           birthdate_layout.helperText = "생년월일을 입력해주세요."
@@ -177,16 +182,32 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
             }
         })
 
+        // 국적 바꾸기
+        nation_text.setText(nation_ccp.selectedCountryName)
+        nation_ccp.setOnCountryChangeListener {
+            nation_text.setText(nation_ccp.selectedCountryName)
+        }
+
+        // 전화번호 바꾸기
+        phone_number_layout.prefixText = "+" + ccp.selectedCountryCode
+        ccp.setOnCountryChangeListener {
+            phone_number_layout.prefixText = "+" + ccp.selectedCountryCode
+        }
+
     }
 
     // 생년월일 유효성 검사
     private fun isValidBirthdate(birthdate: String): Boolean {
 
+        val birthdateReg = Regex("^([1-2][0-9]{3}[0-1][0-9][0-3][0-9])$")
+        return birthdate.matches(birthdateReg)
+
+        /*
         val currentDateTime = Calendar.getInstance().time
         val currentDateYear = SimpleDateFormat("yyyy", Locale.KOREA).format(currentDateTime)
         val validBirthdate = SimpleDateFormat("yyyyMMdd", Locale.KOREA)
 
-        /*
+
         if (birthdate.length == 4) {
             if (birthdate.toInt() > currentDateYear.toInt()) {
                 AlertDialog.Builder(this).setTitle("잘못 입력하였습니다.") //제목
