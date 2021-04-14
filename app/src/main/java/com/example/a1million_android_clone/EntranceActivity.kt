@@ -11,13 +11,13 @@ class EntranceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entrance)
 
-        log_in.setOnClickListener {
+        entrance_login.setOnClickListener {
             // 페이지 이동
             val intent = Intent(this, LogInActivity::class.java)
             startActivity(intent)
         }
 
-        sign_up.setOnClickListener {
+        entrance_signup.setOnClickListener {
             // 페이지 이동
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
