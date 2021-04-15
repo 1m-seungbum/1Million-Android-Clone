@@ -23,6 +23,9 @@
         <activity android:name=".FindPwdActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge"></activity>
 
+        <activity android:name=".TermsServiceActivity"></activity>
+        <activity android:name=".TermsPersonActivity"></activity>
+
         <activity android:name=".EntranceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
