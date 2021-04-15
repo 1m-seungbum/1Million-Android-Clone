@@ -7,7 +7,7 @@
 
 
     <include
-        android:id="@+id/terms_service_toolbar"
+        android:id="@+id/terms_person_toolbar"
         layout="@layout/toolbar_back" />
 
     <androidx.core.widget.NestedScrollView
@@ -17,7 +17,7 @@
         android:layout_marginRight="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/terms_service_toolbar">
+        app:layout_constraintTop_toBottomOf="@id/terms_person_toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,10 +25,10 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/terms_service_text_one"
+                android:id="@+id/terms_person_text_"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1MILLION 이용약관"
+                android:text="개인정보 처리 방침"
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 android:textStyle="bold"

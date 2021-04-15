@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_entrance.*
 
-
 class EntranceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,19 +23,4 @@ class EntranceActivity : AppCompatActivity() {
         }
 
     }
-/*
-    fun getVersion(context: Context): String? {
-
-        var versionName = ""
-        try {
-            val packageManger = context.packageManager.getPackageInfo(context.packageName, 0)
-            versionName = packageManger.versionName
-        } catch (e: Exception) {
-
-        }
-
-        return versionName
-    }
-
- */
 }

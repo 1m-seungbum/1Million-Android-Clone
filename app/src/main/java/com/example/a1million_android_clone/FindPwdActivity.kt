@@ -6,13 +6,16 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_find_pwd.*
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.toolbar_back.*
 
 class FindPwdActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_find_pwd)
 
+        toolbar_back_button.setOnClickListener {
+            finish()
+        }
 
         find_pwd_mail_input.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}

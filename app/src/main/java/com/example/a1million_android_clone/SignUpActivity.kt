@@ -1,6 +1,7 @@
 package com.example.a1million_android_clone
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_signup.*
+import kotlinx.android.synthetic.main.toolbar_back.*
 
 class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragmentInteractionListener,
     GenderFragmentDialog.OnGenderFragmentInteractionListener {
@@ -34,6 +36,10 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
         val profileDialog = ProfileFragmentDialog()
         val genderDialog = GenderFragmentDialog()
 
+        toolbar_back_button.setOnClickListener {
+            finish()
+        }
+
         // 성별 선택 dialog fragment
         gender_input.setOnClickListener {
             genderDialog.show(supportFragmentManager, "gender_dialog")
@@ -46,10 +52,14 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
 
         required_text_first.setOnClickListener {
             // 이용약간 화면 띄우기
+            val intent = Intent(this, TermsServiceActivity::class.java)
+            startActivity(intent)
         }
 
         required_text_third.setOnClickListener {
             // 개인정보수집이용 화면 띄우기
+            val intent = Intent(this, TermsPersonActivity::class.java)
+            startActivity(intent)
         }
 
         person_all.setOnClickListener { onCheckChanged(person_all) }

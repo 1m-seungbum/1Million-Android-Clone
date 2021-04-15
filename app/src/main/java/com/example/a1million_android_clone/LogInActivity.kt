@@ -8,7 +8,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_signup.*
+import kotlinx.android.synthetic.main.toolbar_back.*
 
 class LogInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,9 +17,19 @@ class LogInActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        toolbar_back_button.setOnClickListener {
+            finish()
+        }
+
         //자동 로그인
-        if (!MySharedPreferences.getUserMail(this).isNullOrBlank() && !MySharedPreferences.getUserPwd(this).isNullOrBlank()) {
-            Toast.makeText(this, "${MySharedPreferences.getUserMail(this)}님 자동 로그인 되었습니다.", Toast.LENGTH_SHORT).show()
+        if (!MySharedPreferences.getUserMail(this)
+                .isNullOrBlank() && !MySharedPreferences.getUserPwd(this).isNullOrBlank()
+        ) {
+            Toast.makeText(
+                this,
+                "${MySharedPreferences.getUserMail(this)}님 자동 로그인 되었습니다.",
+                Toast.LENGTH_SHORT
+            ).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -55,7 +65,11 @@ class LogInActivity : AppCompatActivity() {
 
             MySharedPreferences.setUserMail(this, login_mail_input.text.toString())
             MySharedPreferences.setUserPwd(this, login_pwd_input.text.toString())
-            Toast.makeText(this, "${MySharedPreferences.getUserMail(this)}님 로그인 되었습니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "${MySharedPreferences.getUserMail(this)}님 로그인 되었습니다.",
+                Toast.LENGTH_SHORT
+            ).show()
 
             var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
