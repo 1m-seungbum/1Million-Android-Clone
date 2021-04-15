@@ -152,6 +152,7 @@ class ProfileFragmentDialog : DialogFragment() {
             }
 
             override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {//설정해 놓은 위험권한이 거부된 경우 이곳을 실행
+                Toast.makeText(context,"카메라 설정을 허용해 주세요.",Toast.LENGTH_LONG)
             }
         }
 

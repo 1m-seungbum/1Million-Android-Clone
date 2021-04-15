@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.toolbar_back.*
 
-class TermsServiceActivity: AppCompatActivity() {
+class TermsServiceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_terms_service)
@@ -12,7 +12,5 @@ class TermsServiceActivity: AppCompatActivity() {
         toolbar_back_button.setOnClickListener {
             finish()
         }
-
     }
-
 }

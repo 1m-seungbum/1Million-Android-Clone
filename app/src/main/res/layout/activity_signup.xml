@@ -243,7 +243,7 @@
                     android:id="@+id/birthdate_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="YYYY-MM-DD"
+                    android:hint="YYYYMMDD"
                     android:inputType="number">
 
                 </com.google.android.material.textfield.TextInputEditText>
