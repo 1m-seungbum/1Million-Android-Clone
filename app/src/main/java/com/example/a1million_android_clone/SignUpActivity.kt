@@ -79,7 +79,7 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
                     }
                     .show()
             } else if (!checkedPwd) {
-                AlertDialog.Builder(this).setTitle("이메일을 입력해주세요.")
+                AlertDialog.Builder(this).setTitle("비밀번호를 입력해주세요.")
                     .setNeutralButton("확인") { dialogInterface: DialogInterface, i: Int ->
                         scrollView.smoothScrollTo(0, pwd_input.scrollY)
                         pwd_input.requestFocus()
@@ -89,7 +89,7 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
                     }
                     .show()
             } else if (!checkedPwdConfirm) {
-                AlertDialog.Builder(this).setTitle("이메일을 입력해주세요.")
+                AlertDialog.Builder(this).setTitle("비밀번호 확인을 입력해주세요.")
                     .setNeutralButton("확인") { dialogInterface: DialogInterface, i: Int ->
                         scrollView.smoothScrollTo(0, pwd_confirm_input.scrollY)
                         pwd_confirm_input.requestFocus()
@@ -99,7 +99,7 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
                     }
                     .show()
             } else if (!checkedBirthdate) {
-                AlertDialog.Builder(this).setTitle("이메일을 입력해주세요.")
+                AlertDialog.Builder(this).setTitle("생년월일을 입력해주세요.")
                     .setNeutralButton("확인") { dialogInterface: DialogInterface, i: Int ->
                         scrollView.smoothScrollTo(0, birthdate_input.scrollY)
                         birthdate_input.requestFocus()
@@ -109,7 +109,7 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
                     }
                     .show()
             } else if (!checkedPhoneNumber) {
-                AlertDialog.Builder(this).setTitle("이메일을 입력해주세요.")
+                AlertDialog.Builder(this).setTitle("연락처를 입력해주세요.")
                     .setNeutralButton("확인") { dialogInterface: DialogInterface, i: Int ->
                         scrollView.smoothScrollTo(0, phone_number_input.scrollY)
                         phone_number_input.requestFocus()
@@ -119,7 +119,7 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
                     }
                     .show()
             } else if (!checkedAddress) {
-                AlertDialog.Builder(this).setTitle("이메일을 입력해주세요.")
+                AlertDialog.Builder(this).setTitle("주소를 입력해주세요.")
                     .setNeutralButton("확인") { dialogInterface: DialogInterface, i: Int ->
                         scrollView.smoothScrollTo(0, address_input.scrollY)
                         address_input.requestFocus()
@@ -129,7 +129,7 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
                     }
                     .show()
             } else if (!checkedGender) {
-                AlertDialog.Builder(this).setTitle("이메일을 입력해주세요.")
+                AlertDialog.Builder(this).setTitle("성별을 선택해주세요.")
                     .setNeutralButton("확인") { dialogInterface: DialogInterface, i: Int ->
                         scrollView.smoothScrollTo(0, gender_input.scrollY)
                         gender_layout.isHelperTextEnabled = true
@@ -138,7 +138,7 @@ class SignUpActivity : AppCompatActivity(), ProfileFragmentDialog.OnProfileFragm
                     }
                     .show()
             } else if (!checkedTermsOfService) {
-                AlertDialog.Builder(this).setTitle("이메일을 입력해주세요.")
+                AlertDialog.Builder(this).setTitle("필수 이용약관 및 개인정보수집이용에 동의해주세요.")
                     .setNeutralButton("확인") { dialogInterface: DialogInterface, i: Int ->
                         scrollView.smoothScrollTo(0, person_required.scrollY)
                         checkedTermsOfService = false

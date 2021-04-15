@@ -17,11 +17,11 @@
 
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".LogInActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge"></activity>
         <activity android:name=".SignUpActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge"></activity>
         <activity android:name=".FindPwdActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge"></activity>
 
         <activity android:name=".EntranceActivity">
             <intent-filter>

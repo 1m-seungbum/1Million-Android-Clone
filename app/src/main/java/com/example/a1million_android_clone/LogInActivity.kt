@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_signup.*
@@ -16,6 +17,15 @@ class LogInActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        //자동 로그인
+        if (!MySharedPreferences.getUserMail(this).isNullOrBlank() && !MySharedPreferences.getUserPwd(this).isNullOrBlank()) {
+            Toast.makeText(this, "${MySharedPreferences.getUserMail(this)}님 자동 로그인 되었습니다.", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        // 비밀번호 찾기
         find_pwd_text.setOnClickListener {
             val intent = Intent(this, FindPwdActivity::class.java)
             startActivity(intent)
@@ -41,8 +51,15 @@ class LogInActivity : AppCompatActivity() {
         })
 
         login_button.setOnClickListener { // 비밀번호 이메일이 맞다면 실행
+            //이메일 비밀번호 저장
 
+            MySharedPreferences.setUserMail(this, login_mail_input.text.toString())
+            MySharedPreferences.setUserPwd(this, login_pwd_input.text.toString())
+            Toast.makeText(this, "${MySharedPreferences.getUserMail(this)}님 로그인 되었습니다.", Toast.LENGTH_SHORT).show()
 
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
@@ -53,7 +70,7 @@ class LogInActivity : AppCompatActivity() {
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item?.itemId) {
+        when (item?.itemId) {
             android.R.id.home -> {
                 finish()
                 return true
