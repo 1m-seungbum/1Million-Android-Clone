@@ -25,10 +25,10 @@ class GenderFragmentDialog : DialogFragment() {
         }
 
         v.gender_confirm_button.setOnClickListener {
-
+            // 성별 선택 없을시
             if (v.gender_radio_group.checkedRadioButtonId == -1) {
                 dismiss()
-            } else {
+            } else { // 성별 선택 했을시 처리
                 listener?.onGenderFragmentInteraction(v.findViewById<RadioButton>(v.gender_radio_group.checkedRadioButtonId).text.toString())
                 dismiss()
             }

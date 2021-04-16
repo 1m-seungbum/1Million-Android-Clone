@@ -9,6 +9,7 @@ class TermsServiceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_terms_service)
 
+        // 툴바 뒤로가기 버튼
         toolbar_back_button.setOnClickListener {
             finish()
         }

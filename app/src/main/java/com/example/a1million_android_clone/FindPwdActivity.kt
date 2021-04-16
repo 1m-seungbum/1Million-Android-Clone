@@ -13,6 +13,7 @@ class FindPwdActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_find_pwd)
 
+        // 툴바 뒤로가기 버튼
         toolbar_back_button.setOnClickListener {
             finish()
         }
@@ -22,10 +23,10 @@ class FindPwdActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable?) {
                 if (s != null) {
-                    if (!isValidMail(s.toString())) {
+                    if (!isValidMail(s.toString())) { // 유효하지 않은 이메일일시 버튼 비활성화
                         find_pwd_button.isEnabled = false
                         find_pwd_button.setBackgroundColor(Color.GRAY)
-                    } else {
+                    } else { // 유효한 이메일일시 버튼 활성화
                         find_pwd_button.isEnabled = true
                         find_pwd_button.setBackgroundColor(Color.BLACK)
                     }

@@ -60,7 +60,7 @@ class LogInActivity : AppCompatActivity() {
             }
         })
 
-        login_button.setOnClickListener { // 비밀번호 이메일이 맞다면 실행
+        login_button.setOnClickListener { // 비밀번호 이메일이 맞다면 실행 -> 처리 안했음
             //이메일 비밀번호 저장
 
             MySharedPreferences.setUserMail(this, login_mail_input.text.toString())
@@ -82,16 +82,4 @@ class LogInActivity : AppCompatActivity() {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item?.itemId) {
-            android.R.id.home -> {
-                finish()
-                return true
-            }
-            else -> {
-                return super.onOptionsItemSelected(item)
-            }
-        }
-    }
 }

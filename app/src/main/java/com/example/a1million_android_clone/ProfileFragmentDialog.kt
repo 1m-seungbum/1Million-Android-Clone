@@ -100,7 +100,7 @@ class ProfileFragmentDialog : DialogFragment() {
     private var cameraImagePath: String? = null
 
     @Throws(IOException::class)
-    private fun createImageFile(): File? {
+    private fun createImageFile(): File? { // 카메라를 찍은후 이미지 저장
         val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
         val imageFileName = "IMG_" + timeStamp + "_"
         val storageDir = context?.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
@@ -114,7 +114,7 @@ class ProfileFragmentDialog : DialogFragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         when (requestCode) {
-            REQUEST_GALLERY_TAKE -> {
+            REQUEST_GALLERY_TAKE -> { // 사진선택시
                 if (resultCode == Activity.RESULT_OK) {
                     data?.data?.let { uri ->
                         launchImageCrop(uri)
@@ -122,17 +122,17 @@ class ProfileFragmentDialog : DialogFragment() {
                 }
             }
 
-            REQUEST_IMAGE_CAPTURE -> {
+            REQUEST_IMAGE_CAPTURE -> { // 카메라 선택시
                 if (resultCode == Activity.RESULT_OK) {
                     launchImageCrop(Uri.fromFile(File(cameraImagePath)))
                 }
             }
 
-            CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE -> {
+            CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE -> { // crops 에서 사진을 뽑아낸후
                 val result = CropImage.getActivityResult(data)
                 if (resultCode == Activity.RESULT_OK) {
                     result.uri?.let {
-                        listener?.onProfileFragmentInteraction(result.uri)
+                        listener?.onProfileFragmentInteraction(result.uri) // 프로필 사진 저장하기 위해서 이미지 넘김
                         dismiss()
                     }
                 } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
@@ -144,15 +144,14 @@ class ProfileFragmentDialog : DialogFragment() {
         }
     }
 
-    //테드 퍼미션 설정 (카메라 사용시 권한 설정 팝업을 쉽게 구현하기 위해 사용)
+    // 카메라 테드 퍼미션 설정
     private fun setCameraPermission() {
         val permission = object : PermissionListener {
-            override fun onPermissionGranted() {//설정해 놓은 위험권한(카메라 접근 등)이 허용된 경우 이곳을 실행
+            override fun onPermissionGranted() {//설정해 놓은 카메라 권한이 허용된 경우 실행
                 goToCamera()
             }
 
-            override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {//설정해 놓은 위험권한이 거부된 경우 이곳을 실행
-                Toast.makeText(context,"카메라 설정을 허용해 주세요.",Toast.LENGTH_LONG)
+            override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {// 권한이 거부 되었을때
             }
         }
 

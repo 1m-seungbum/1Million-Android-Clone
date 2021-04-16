@@ -12,6 +12,7 @@ class EntranceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entrance)
 
+        // 바탕 이미지 glide 처리
         Glide.with(this.applicationContext)
             .load(R.drawable.bg_entrance)
             .centerCrop()
