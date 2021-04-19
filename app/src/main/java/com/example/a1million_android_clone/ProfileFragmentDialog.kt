@@ -53,7 +53,6 @@ class ProfileFragmentDialog : DialogFragment() {
                 .setCropShape(CropImageView.CropShape.OVAL)
                 .start(it, this)
         }
-
     }
 
     override fun onAttach(context: Context) {
